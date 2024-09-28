@@ -1,3 +1,8 @@
+import.meta.glob([
+  '../images/**',
+  '../fonts/**',
+]);
+
 import axios from 'axios';
 window.axios = axios;
 
