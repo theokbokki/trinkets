@@ -1,3 +1,18 @@
+@javascript()
+<script>
+class App {
+    constructor() {
+        document.querySelectorAll('.trinket-cards').forEach(el => {
+            new TrinketCards(el);
+        });
+    }
+}
+
+addEventListener('load', () => new App());
+</script>
+
+@endjavascript
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +29,17 @@
 @css()
 <style>
 .app {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: var(--sans);
     background: var(--grey-100);
+}
+
+@media screen and (min-width: 37.5rem) {
+    .app {
+        padding: 2.5rem;
+    }
 }
 </style>
 @endcss

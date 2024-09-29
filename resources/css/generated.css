@@ -1,5 +1,70 @@
 
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav__title {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.nav__about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    aspect-ratio: 1/1;
+    font-size: .875rem;
+    text-decoration: none;
+    color: var(--grey-600);
+    background: var(--white);
+    border-radius: 50%;
+
+    &:hover {
+        box-shadow: 0 0 0 1px var(--grey-300);
+    }
+}
+
+
+.trinket-card {
+    width: 20rem;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.trinket-card__image {
+    width: 100%;
+}
+
+@media screen and (min-width: 37.5rem) {
+    .trinket-card {
+    }
+}
+
+
 .app {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: var(--sans);
     background: var(--grey-100);
+}
+
+@media screen and (min-width: 37.5rem) {
+    .app {
+        padding: 2.5rem;
+    }
+}
+
+
+.trinket-cards {
+    max-width: 49rem;
+    margin: 4rem auto 0;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem,1fr));
+    gap: 2rem
 }
 

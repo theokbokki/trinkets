@@ -10,4 +10,7 @@
     --grey-200: #e4e4e7;
     --grey-100: #f5f5f4;
     --grey-50: #fafaf9;
+    --white: #ffffff;
+
+    --sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
