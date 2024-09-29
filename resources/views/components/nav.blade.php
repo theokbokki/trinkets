@@ -13,6 +13,10 @@
 @css()
 <style>
 .nav {
+    position: fixed;
+    left: 2rem;
+    right: 2rem;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -37,6 +41,13 @@
 
     &:hover {
         box-shadow: 0 0 0 1px var(--grey-300);
+    }
+}
+
+@media screen and (min-width: 37.5rem) {
+    .nav {
+        left: 2.5rem;
+        right: 2.5rem;
     }
 }
 </style>

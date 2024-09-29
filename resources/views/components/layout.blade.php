@@ -5,6 +5,10 @@ class App {
         document.querySelectorAll('.trinket-cards').forEach(el => {
             new TrinketCards(el);
         });
+
+        document.querySelectorAll('.sidebar').forEach(el => {
+            new Sidebar(el);
+        });
     }
 }
 

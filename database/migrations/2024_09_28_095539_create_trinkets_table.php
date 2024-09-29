@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('excerpt');
             $table->string('image');
             $table->string('image_alt');
+            $table->string('link');
             $table->timestamps();
             $table->softDeletes();
         });

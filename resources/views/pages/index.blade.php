@@ -79,6 +79,7 @@ class TrinketCards {
 <div class="trinket-cards">
 @foreach ($trinkets as $trinket)
     <x-trinket-card :$trinket />
+    <x-sidebar :$trinket />
 @endforeach
 </div>
 </x-layout>

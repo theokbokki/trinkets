@@ -9,3 +9,8 @@
     white-space: nowrap;
     border-width: 0;
 }
+
+.bodyblock {
+    overflow: hidden;
+    height: 100%;
+}

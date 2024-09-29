@@ -19,6 +19,7 @@ class Trinket extends Model
         'excerpt',
         'image',
         'image_alt',
+        'link',
     ];
 
     public function getSlugOptions() : SlugOptions

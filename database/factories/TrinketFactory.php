@@ -28,6 +28,7 @@ class TrinketFactory extends Factory
             'excerpt' => fake()->sentence(),
             'image' => 'images/test/'.fake()->image(storage_path('app/public/images/test'), rand(300, 1200), rand(300, 1200), null, false),
             'image_alt' => fake()->sentence(),
+            'link' => fake()->url(),
         ];
     }
 }
