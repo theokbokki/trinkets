@@ -3,7 +3,7 @@
         <h1 class="nav__title">Trinkets</h1>
     </div>
     <div>
-        <a href="/#about" class="nav__about">
+        <a href="#about" class="nav__about">
             <span class="nav__icon">?</span>
             <span class="sro">About Trinkets</span>
         </a>

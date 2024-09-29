@@ -39,6 +39,58 @@
 }
 
 
+.about {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    &:not(:target, .about--open) {
+        display: none;
+    }
+}
+
+.about__content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20rem;
+    padding: 2.5rem 2.5rem;
+    line-height: 150%;
+    background: white;
+
+    p {
+        margin-top: 1.25rem;
+        color: var(--grey-900);
+    }
+
+    a {
+        color: var(--grey-600);
+
+        &:hover {
+            color: var(--grey-900);
+        }
+    }
+}
+
+.about__close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    display: block;
+    width: 1.5rem;
+    aspect-ratio: 1/1;
+    color: var(--grey-600);
+}
+
+.about__background {
+    position: absolute;
+    inset: 0;
+    background: var(--grey-600);
+    opacity: .3;
+}
+
+
 .trinket-card {
     position: relative;
     width: 20rem;
@@ -63,7 +115,6 @@
     position: fixed;
     inset: 0;
     z-index: 2;
-    backdrop-filter: blur(2px);
 
     &:not(:target, .sidebar--open) {
         display: none;

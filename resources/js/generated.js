@@ -59,6 +59,60 @@ class TrinketCards {
 }
 
 
+class About {
+    constructor(el) {
+        this.el = el;
+        this.getElements();
+        this.setEventListeners();
+    }
+
+    getElements() {
+        this.name = this.el.getAttribute("id");
+        this.background = this.el.querySelector(".about__background");
+        this.content = this.el.querySelector(".about__content");
+        this.closeElement = this.el.querySelector(".about__close");
+        this.openElement = document.querySelector('[href="#about"]');
+    }
+
+    setEventListeners() {
+        this.el.addEventListener("click", (e) => {
+            if (e.target === this.background) {
+                this.close(e)
+            }
+        });
+
+        this.closeElement.addEventListener("click", (e) => this.close(e));
+
+        this.openElement.addEventListener("click", (e) => this.open(e));
+
+        window.addEventListener("keydown", (e) => {
+            if (this.isOpen() && e.key === "Escape") {
+                this.close(e);
+            }
+        });
+    }
+
+    isOpen() {
+        return this.el.classList.contains("about--open");
+    }
+
+    close(e) {
+        e.preventDefault();
+
+        document.body.classList.remove('bodyblock');
+        this.el.classList.remove("about--open");
+    }
+
+    open(e) {
+        e.preventDefault();
+
+        document.body.classList.add('bodyblock');
+        this.el.classList.add("about--open");
+        this.content.scrollTop = 0;
+    }
+}
+
+
 class Sidebar {
     constructor(el) {
         this.el = el;
@@ -123,6 +177,10 @@ class App {
 
         document.querySelectorAll('.sidebar').forEach(el => {
             new Sidebar(el);
+        });
+
+        document.querySelectorAll('.about').forEach(el => {
+            new About(el);
         });
     }
 }

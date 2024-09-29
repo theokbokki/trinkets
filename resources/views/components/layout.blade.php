@@ -9,6 +9,10 @@ class App {
         document.querySelectorAll('.sidebar').forEach(el => {
             new Sidebar(el);
         });
+
+        document.querySelectorAll('.about').forEach(el => {
+            new About(el);
+        });
     }
 }
 

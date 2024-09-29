@@ -87,7 +87,6 @@ class Sidebar {
     position: fixed;
     inset: 0;
     z-index: 2;
-    backdrop-filter: blur(2px);
 
     &:not(:target, .sidebar--open) {
         display: none;
