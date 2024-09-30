@@ -29,11 +29,21 @@ class TrinketResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title'),
-                Textarea::make('excerpt'),
+                TextInput::make('title')
+                    ->required(),
+
+                Textarea::make('excerpt')
+                    ->required(),
+
                 FileUpload::make('image')
-                    ->directory('images'),
-                TextInput::make('image_alt'),
+                    ->directory('images')
+                    ->required(),
+
+                TextInput::make('image_alt')
+                    ->required(),
+
+                TextInput::make('link')
+                    ->url(),
             ]);
     }
 
