@@ -44,14 +44,22 @@ class Sidebar {
 
         document.body.classList.remove('bodyblock');
         this.el.classList.remove("sidebar--open");
+
+        setTimeout(() => {
+            this.el.style.display = 'none';
+        }, 500);
     }
 
     open(e) {
         e.preventDefault();
 
         document.body.classList.add('bodyblock');
-        this.el.classList.add("sidebar--open");
+        this.el.style.display = 'block';
         this.content.scrollTop = 0;
+
+        setTimeout(() => {
+            this.el.classList.add("sidebar--open");
+        }, 10)
     }
 }
 </script>
@@ -76,7 +84,7 @@ class Sidebar {
             @endisset
         </div>
         <figure class="sidebar__figure">
-            <img src="/storage/{{ $trinket->image }}" alt="{{ $trinket->image_alt }}" class="sidebar__image">
+            <img src="{{ $trinket->image }}" alt="{{ $trinket->image_alt }}" class="sidebar__image">
         </figure>
     </div>
 </article>
@@ -97,7 +105,8 @@ class Sidebar {
     position: absolute;
     inset: 0;
     background: var(--grey-600);
-    opacity: .3;
+    opacity: 0;
+    transition: opacity 250ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .sidebar__content {
@@ -110,6 +119,8 @@ class Sidebar {
     background: var(--grey-100);
     overflow: scroll;
     overscroll-behavior: contain;
+    transform: translate3d(-100%, 0, 0) scale(.95);
+    transition: transform 500ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .sidebar__close {
@@ -154,6 +165,14 @@ class Sidebar {
     &:hover {
         color: var(--grey-900);
     }
+}
+
+.sidebar--open .sidebar__background {
+    opacity: .3;
+}
+
+.sidebar--open .sidebar__content {
+    transform: translate3d(0, 0, 0) scale(1);
 }
 
 @media screen and (min-width: 35rem) {

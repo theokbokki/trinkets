@@ -13,8 +13,6 @@ class TrinketSeeder extends Seeder
      */
     public function run(): void
     {
-        Storage::delete(Storage::disk('public')->allFiles('images/test'));
-
         Trinket::factory(20)->create();
     }
 }

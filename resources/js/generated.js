@@ -101,14 +101,22 @@ class About {
 
         document.body.classList.remove('bodyblock');
         this.el.classList.remove("about--open");
+
+        setTimeout(() => {
+            this.el.style.display = 'none';
+        }, 500);
     }
 
     open(e) {
         e.preventDefault();
 
         document.body.classList.add('bodyblock');
-        this.el.classList.add("about--open");
+        this.el.style.display = 'block';
         this.content.scrollTop = 0;
+
+        setTimeout(() => {
+            this.el.classList.add("about--open");
+        }, 10)
     }
 }
 
@@ -157,14 +165,22 @@ class Sidebar {
 
         document.body.classList.remove('bodyblock');
         this.el.classList.remove("sidebar--open");
+
+        setTimeout(() => {
+            this.el.style.display = 'none';
+        }, 500);
     }
 
     open(e) {
         e.preventDefault();
 
         document.body.classList.add('bodyblock');
-        this.el.classList.add("sidebar--open");
+        this.el.style.display = 'block';
         this.content.scrollTop = 0;
+
+        setTimeout(() => {
+            this.el.classList.add("sidebar--open");
+        }, 10)
     }
 }
 
@@ -182,6 +198,8 @@ class App {
         document.querySelectorAll('.about').forEach(el => {
             new About(el);
         });
+
+        document.body.dataset.loaded = true;
     }
 }
 

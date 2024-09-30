@@ -42,14 +42,22 @@ class About {
 
         document.body.classList.remove('bodyblock');
         this.el.classList.remove("about--open");
+
+        setTimeout(() => {
+            this.el.style.display = 'none';
+        }, 500);
     }
 
     open(e) {
         e.preventDefault();
 
         document.body.classList.add('bodyblock');
-        this.el.classList.add("about--open");
+        this.el.style.display = 'block';
         this.content.scrollTop = 0;
+
+        setTimeout(() => {
+            this.el.classList.add("about--open");
+        }, 10)
     }
 }
 </script>
@@ -73,7 +81,7 @@ class About {
 @css()
 <style>
 .about {
-    position: absolute;
+    position: fixed;
     inset: 0;
     z-index: 1;
 
@@ -86,11 +94,16 @@ class About {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20rem;
+    transform: translate(-50%, -50%) scale(.95);
+    min-width: 0;
+    width: calc(100vw - 5rem);
+    max-width: 20rem;
     padding: 2.5rem 2.5rem;
     line-height: 150%;
     background: white;
+    opacity: 0;
+    transition: transform 500ms cubic-bezier(0.19, 1, 0.22, 1),
+        opacity 400ms cubic-bezier(0.19, 1, 0.22, 1);
 
     p {
         margin-top: 1.25rem;
@@ -120,7 +133,17 @@ class About {
     position: absolute;
     inset: 0;
     background: var(--grey-600);
+    opacity: 0;
+    transition: opacity 250ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.about--open .about__background {
     opacity: .3;
+}
+
+.about--open .about__content {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
 }
 </style>
 @endcss

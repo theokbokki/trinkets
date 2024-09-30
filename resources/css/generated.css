@@ -40,7 +40,7 @@
 
 
 .about {
-    position: absolute;
+    position: fixed;
     inset: 0;
     z-index: 1;
 
@@ -53,11 +53,16 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20rem;
+    transform: translate(-50%, -50%) scale(.95);
+    min-width: 0;
+    width: calc(100vw - 5rem);
+    max-width: 20rem;
     padding: 2.5rem 2.5rem;
     line-height: 150%;
     background: white;
+    opacity: 0;
+    transition: transform 500ms cubic-bezier(0.19, 1, 0.22, 1),
+        opacity 400ms cubic-bezier(0.19, 1, 0.22, 1);
 
     p {
         margin-top: 1.25rem;
@@ -87,7 +92,17 @@
     position: absolute;
     inset: 0;
     background: var(--grey-600);
+    opacity: 0;
+    transition: opacity 250ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.about--open .about__background {
     opacity: .3;
+}
+
+.about--open .about__content {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
 }
 
 
@@ -96,6 +111,11 @@
     width: 20rem;
     max-width: 100%;
     margin: 0 auto;
+    transition: 500ms transform cubic-bezier(0.19, 1, 0.22, 1);
+
+    &:hover {
+        transform: scale(.95);
+    }
 }
 
 .trinket-card__image {
@@ -125,7 +145,8 @@
     position: absolute;
     inset: 0;
     background: var(--grey-600);
-    opacity: .3;
+    opacity: 0;
+    transition: opacity 250ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .sidebar__content {
@@ -138,6 +159,8 @@
     background: var(--grey-100);
     overflow: scroll;
     overscroll-behavior: contain;
+    transform: translate3d(-100%, 0, 0) scale(.95);
+    transition: transform 500ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .sidebar__close {
@@ -184,6 +207,14 @@
     }
 }
 
+.sidebar--open .sidebar__background {
+    opacity: .3;
+}
+
+.sidebar--open .sidebar__content {
+    transform: translate3d(0, 0, 0) scale(1);
+}
+
 @media screen and (min-width: 35rem) {
     .sidebar__content {
         padding: 7.5rem 5rem 5rem;
@@ -201,6 +232,14 @@
     padding: 2rem;
     font-family: var(--sans);
     background: var(--grey-100);
+
+    &:not([data-loaded=true]) * {
+        opacity: 0;
+    }
+}
+
+:where(.app *) {
+    transition: opacity 400ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 @media screen and (min-width: 37.5rem) {
