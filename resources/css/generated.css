@@ -1,125 +1,15 @@
 
-.nav {
-    position: fixed;
-    left: 2rem;
-    right: 2rem;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.nav__title {
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-.nav__about {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.5rem;
-    aspect-ratio: 1/1;
-    font-size: .875rem;
-    text-decoration: none;
-    color: var(--grey-600);
-    background: var(--white);
-    border-radius: 50%;
-
-    &:hover {
-        box-shadow: 0 0 0 1px var(--grey-300);
-    }
-}
-
-@media screen and (min-width: 37.5rem) {
-    .nav {
-        left: 2.5rem;
-        right: 2.5rem;
-    }
-}
-
-
-.about {
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-
-    &:not(:target, .about--open) {
-        display: none;
-    }
-}
-
-.about__content {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(.95);
-    min-width: 0;
-    width: calc(100vw - 5rem);
-    max-width: 20rem;
-    padding: 2.5rem 2.5rem;
-    line-height: 150%;
-    background: white;
-    opacity: 0;
-    transition: transform 500ms cubic-bezier(0.19, 1, 0.22, 1),
-        opacity 400ms cubic-bezier(0.19, 1, 0.22, 1);
-
-    p {
-        margin-top: 1.25rem;
-        color: var(--grey-900);
-    }
-
-    a {
-        color: var(--grey-600);
-
-        &:hover {
-            color: var(--grey-900);
-        }
-    }
-}
-
-.about__close {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    display: block;
-    width: 1.5rem;
-    aspect-ratio: 1/1;
-    color: var(--grey-600);
-}
-
-.about__background {
-    position: absolute;
-    inset: 0;
-    background: var(--grey-600);
-    opacity: 0;
-    transition: opacity 250ms cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.about--open .about__background {
-    opacity: .3;
-}
-
-.about--open .about__content {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-}
-
 
 .trinket-card {
     position: relative;
-    width: 20rem;
-    max-width: 100%;
-    margin: 0 auto;
-    transition: 500ms transform cubic-bezier(0.19, 1, 0.22, 1);
-
-    &:hover {
-        transform: scale(.95);
-    }
+    padding: 1rem;
+    background: var(--grey-50);
 }
 
 .trinket-card__image {
     width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: contain;
 }
 
 .trinket-card__link {
@@ -131,107 +21,40 @@
 }
 
 
-.sidebar {
-    position: fixed;
-    inset: 0;
-    z-index: 2;
 
-    &:not(:target, .sidebar--open) {
-        display: none;
-    }
+
+.intro {
+    max-width: 26.25rem;
+    padding: 0 2rem;
+    margin: 7.5rem auto 5rem;
 }
 
-.sidebar__background {
-    position: absolute;
-    inset: 0;
-    background: var(--grey-600);
-    opacity: 0;
-    transition: opacity 250ms cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.sidebar__content {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    padding: 7.5rem 1.5rem 5rem;
-    background: var(--grey-100);
-    overflow: scroll;
-    overscroll-behavior: contain;
-    transform: translate3d(-100%, 0, 0) scale(.95);
-    transition: transform 500ms cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.sidebar__close {
-    position: absolute;
-    top: 2.5rem;
-    right: 1.5rem;
-    order: 0;
-    width: 1.5rem;
-    aspect-ratio: 1/1;
-
-    a {
-        color: var(--grey-600);
-    }
-}
-
-.sidebar__figure {
-    order: 1;
-    min-width: 0;
-    width: 100%;
-    max-width: 25rem;
-}
-
-.sidebar__image {
-    width: 100%;
-}
-
-.sidebar__text {
-    order: 2;
-    min-width: 0;
-    width: 100%;
-    max-width: 25rem;
-    margin-top: 1rem;
-    line-height: 150%;
+.intro__title {
     color: var(--grey-900);
 }
 
-.sidebar__link {
-    display: inline-block;
-    margin-top: 2.5rem;
-    color: var(--grey-600);
+.intro__text {
+    margin-top: 2rem;
+    font-size: .875rem;
+    line-height: 150%;
+    color: var(--grey-500);
+}
+
+.intro__link {
+    color: var(--grey-500);
+    text-underline-offset: .125rem;
 
     &:hover {
         color: var(--grey-900);
     }
 }
 
-.sidebar--open .sidebar__background {
-    opacity: .3;
-}
 
-.sidebar--open .sidebar__content {
-    transform: translate3d(0, 0, 0) scale(1);
-}
-
-@media screen and (min-width: 35rem) {
-    .sidebar__content {
-        padding: 7.5rem 5rem 5rem;
-    }
-
-    .sidebar__close {
-        right: 2.5rem;
-    }
-}
 
 
 .app {
-    max-width: 75rem;
     margin: 0 auto;
-    padding: 2rem;
     font-family: var(--sans);
-    background: var(--grey-100);
 
     &:not([data-loaded=true]) * {
         opacity: 0;
@@ -242,19 +65,85 @@
     transition: opacity 400ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-@media screen and (min-width: 37.5rem) {
-    .app {
-        padding: 2.5rem;
-    }
-}
+
 
 
 .trinket-cards {
-    max-width: 49rem;
-    margin: 4rem auto 0;
     position: relative;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15rem,1fr));
-    gap: 2rem
+    grid-template-columns: repeat(auto-fill, minmax(11.25rem, 1fr));
+    gap: 1rem;
+    max-width: 60.25rem;
+    padding: 0 2rem;
+    margin: 0 auto;
 }
+
+
+
+
+.trinket {
+    display: flex;
+    flex-direction: column;
+    max-width: 32.5rem;
+    padding: 0 2rem;
+    margin: 7.5rem auto 5rem;
+}
+
+.trinket__title {
+    margin-top: 2.5rem;
+    color: var(--grey-900);
+    line-height: 150%;
+}
+
+.trinket__excerpt {
+    color: var(--grey-900);
+    line-height: 150%;
+}
+
+.trinket__link {
+    margin-top: 2rem;
+    text-underline-offset: .125rem;
+    color: var(--grey-500);
+
+    &:hover {
+        color: var(--grey-900);
+    }
+}
+
+.trinket__figure {
+    width: 100%;
+    order: -1;
+}
+
+.trinket__image {
+    width: 100%;
+}
+
+.trinket__back {
+    position: absolute;
+    top: 5rem;
+    color: var(--grey-600);
+    text-decoration: none;
+}
+
+.trinket__back:hover {
+    color: var(--grey-900);
+}
+
+.trinket__back:hover span + span {
+    box-shadow: 0px 2px 0px -1px;
+}
+
+
+.trinket__back span + span {
+    box-shadow: 0px 2px 0px -1px transparent;
+}
+
+@media screen and (min-width: 63.75rem) {
+    .trinket__back {
+        top: 7.5rem;
+        left: 10rem;
+    }
+}
+
 

@@ -4,6 +4,12 @@
     "description": "The skeleton application for the Laravel framework.",
     "keywords": ["laravel", "framework"],
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "~/projects/laravel/blade-sfc/"
+        }
+    ],
     "require": {
         "php": "^8.2",
         "filament/filament": "^3.2",

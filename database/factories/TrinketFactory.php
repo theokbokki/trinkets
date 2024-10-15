@@ -26,7 +26,7 @@ class TrinketFactory extends Factory
             'title' => $title,
             'slug' => str()->slug($title),
             'excerpt' => fake()->sentence(),
-            'image' => 'https://picsum.photos/'.rand(300, 1200).'/'.rand(300, 1200),
+            'image' => '/images/test/test.jpg',
             'image_alt' => fake()->sentence(),
             'link' => fake()->url(),
         ];

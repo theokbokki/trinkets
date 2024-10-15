@@ -1,26 +1,15 @@
 @javascript()
 <script>
 class App {
-    constructor() {
-        document.querySelectorAll('.trinket-cards').forEach(el => {
-            new TrinketCards(el);
-        });
+    constructor(el) {
+        this.el = el;
 
-        document.querySelectorAll('.sidebar').forEach(el => {
-            new Sidebar(el);
-        });
-
-        document.querySelectorAll('.about').forEach(el => {
-            new About(el);
-        });
-
-        document.body.dataset.loaded = true;
+        this.el.dataset.loaded = true;
     }
 }
 
-addEventListener('load', () => new App());
+document.querySelectorAll('.app').forEach((el) => new App(el));
 </script>
-
 @endjavascript
 
 <!DOCTYPE html>
@@ -36,18 +25,11 @@ addEventListener('load', () => new App());
             .app * {
                 opacity: 1;
             }
-
-            .sidebar__background, .about__background {
-                opacity: .3;
-            }
-
-            .sidebar__content {
-                transform: none;
-            }
         </style>
     </noscript>
 </head>
 <body class="app">
+    <h1 class="sro">List of Théoo's trinkets</h1>
     {{ $slot }}
 </body>
 </html>
@@ -55,11 +37,8 @@ addEventListener('load', () => new App());
 @css()
 <style>
 .app {
-    max-width: 75rem;
     margin: 0 auto;
-    padding: 2rem;
     font-family: var(--sans);
-    background: var(--grey-100);
 
     &:not([data-loaded=true]) * {
         opacity: 0;
@@ -68,12 +47,6 @@ addEventListener('load', () => new App());
 
 :where(.app *) {
     transition: opacity 400ms cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-@media screen and (min-width: 37.5rem) {
-    .app {
-        padding: 2.5rem;
-    }
 }
 </style>
 @endcss
