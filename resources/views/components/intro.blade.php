@@ -9,7 +9,7 @@
 .intro {
     max-width: 26.25rem;
     padding: 0 2rem;
-    margin: 7.5rem auto 5rem;
+    margin: 4rem auto 2.5rem;
 }
 
 .intro__title {
@@ -26,9 +26,16 @@
 .intro__link {
     color: var(--grey-500);
     text-underline-offset: .125rem;
+    transition: color 100ms ease-out;
 
     &:hover {
         color: var(--grey-900);
+    }
+}
+
+@media screen and (min-width: 40rem) {
+    .intro {
+        margin: 7.5rem auto 5rem;
     }
 }
 </style>

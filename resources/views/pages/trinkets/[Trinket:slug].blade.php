@@ -12,7 +12,7 @@ name('trinket');
         <figure class="trinket__figure">
             <img src="{{ Storage::url($trinket->image) }}" alt="{{ $trinket->image_alt }}" class="trinket__image">
         </figure>
-        <a href="{{ route('home') }}" class="trinket__back">
+        <a href="{{ route('home') }}" class="trinket__back" data-transition="true">
             <span class="trinket__icon">
                 {!! Vite::content('resources/icons/back.svg') !!}
             </span>
@@ -24,11 +24,12 @@ name('trinket');
 @css()
 <style>
 .trinket {
+    position: relative;
     display: flex;
     flex-direction: column;
     max-width: 32.5rem;
     padding: 0 2rem;
-    margin: 7.5rem auto 5rem;
+    margin: 6.5rem auto 2.5rem;
 }
 
 .trinket__title {
@@ -43,9 +44,11 @@ name('trinket');
 }
 
 .trinket__link {
+    width: max-content;
     margin-top: 2rem;
     text-underline-offset: .125rem;
     color: var(--grey-500);
+    transition: color 100ms ease-out;
 
     &:hover {
         color: var(--grey-900);
@@ -63,28 +66,35 @@ name('trinket');
 
 .trinket__back {
     position: absolute;
-    top: 5rem;
+    top: -2.5rem;
     color: var(--grey-600);
     text-decoration: none;
+    transition: color 100ms ease-out;
 }
 
 .trinket__back:hover {
     color: var(--grey-900);
 }
 
+.trinket__back span + span {
+    box-shadow: 0px 2px 0px -1px transparent;
+    transition: box-shadow 150ms ease-out;
+}
+
 .trinket__back:hover span + span {
     box-shadow: 0px 2px 0px -1px;
 }
 
-
-.trinket__back span + span {
-    box-shadow: 0px 2px 0px -1px transparent;
+@media screen and (min-width: 40rem) {
+    .trinket {
+        margin: 9.5rem auto 5rem;
+    }
 }
 
 @media screen and (min-width: 63.75rem) {
     .trinket__back {
-        top: 7.5rem;
-        left: 10rem;
+        top: 0;
+        left: -10rem;
     }
 }
 </style>
