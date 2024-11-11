@@ -9,9 +9,7 @@ name('trinket');
         <h2 class="trinket__title">{{ $trinket->title }}</h2>
         <p class="trinket__excerpt">{{ $trinket->excerpt }}</p>
         <a href="{{ $trinket->link }}" class="trinket__link">View original</a>
-        <figure class="trinket__figure">
-            <img src="{{ Storage::url($trinket->image) }}" alt="{{ $trinket->image_alt }}" class="trinket__image">
-        </figure>
+        <x-images :trinket="$trinket"/>
         <a href="{{ route('home') }}" class="trinket__back" data-transition="true">
             <span class="trinket__icon">
                 {!! Vite::content('resources/icons/back.svg') !!}
@@ -33,7 +31,6 @@ name('trinket');
 }
 
 .trinket__title {
-    margin-top: 2.5rem;
     color: var(--grey-900);
     line-height: 150%;
 }
@@ -53,15 +50,6 @@ name('trinket');
     &:hover {
         color: var(--grey-900);
     }
-}
-
-.trinket__figure {
-    width: 100%;
-    order: -1;
-}
-
-.trinket__image {
-    width: 100%;
 }
 
 .trinket__back {

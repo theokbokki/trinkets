@@ -18,6 +18,7 @@ use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Statikbe\FilamentFlexibleContentBlocks\Filament\Form\Fields\ContentBlocksField;
 
 class TrinketResource extends Resource
 {
@@ -35,12 +36,7 @@ class TrinketResource extends Resource
                 Textarea::make('excerpt')
                     ->required(),
 
-                FileUpload::make('image')
-                    ->directory('images')
-                    ->required(),
-
-                TextInput::make('image_alt')
-                    ->required(),
+                ContentBlocksField::create(),
 
                 TextInput::make('link')
                     ->url(),
