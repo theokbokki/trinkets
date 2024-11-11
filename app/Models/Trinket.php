@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 use Statikbe\FilamentFlexibleContentBlocks\Models\Concerns\HasDefaultContentBlocksTrait;
 use Statikbe\FilamentFlexibleContentBlocks\Models\Concerns\HasMediaAttributesTrait;
 use Statikbe\FilamentFlexibleContentBlocks\Models\Contracts\HasContentBlocks;
@@ -20,6 +22,7 @@ class Trinket extends Model implements HasContentBlocks, HasMedia, HasMediaAttri
     use InteractsWithMedia;
     use HasMediaAttributesTrait;
     use SoftDeletes;
+    use HasSlug;
 
     protected $fillable = [
         'title',
@@ -29,7 +32,7 @@ class Trinket extends Model implements HasContentBlocks, HasMedia, HasMediaAttri
         'link',
     ];
 
-    public function getSlugOptions() : SlugOptions
+    public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
             ->generateSlugsFrom('title')
