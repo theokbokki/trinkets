@@ -20,14 +20,10 @@ class TrinketFactory extends Factory
     {
         $title = fake()->unique()->word();
 
-        File::ensureDirectoryExists(Storage::disk('public')->path('images/test'));
-
         return [
             'title' => $title,
             'slug' => str()->slug($title),
             'excerpt' => fake()->sentence(),
-            'image' => '/images/test/test.jpg',
-            'image_alt' => fake()->sentence(),
             'link' => fake()->url(),
         ];
     }

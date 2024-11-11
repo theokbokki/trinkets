@@ -16,8 +16,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('title');
             $table->string('excerpt');
-            $table->string('image');
-            $table->string('image_alt');
+            $table->json('content_blocks')->default('[]');
             $table->string('link');
             $table->timestamps();
             $table->softDeletes();

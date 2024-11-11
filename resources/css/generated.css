@@ -23,6 +23,19 @@
 
 
 
+.trinket__figure {
+    width: 100%;
+    flex-grow: 1;
+    min-width: 32.5rem;
+}
+
+.trinket__image {
+    width: 100%;
+}
+
+
+
+
 .intro {
     max-width: 26.25rem;
     padding: 0 2rem;
@@ -77,6 +90,16 @@
 
 
 
+.trinket__figures {
+    width: 100%;
+    display: grid;
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+
+
+
 .trinket-cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(11.25rem, 1fr));
@@ -99,7 +122,6 @@
 }
 
 .trinket__title {
-    margin-top: 2.5rem;
     color: var(--grey-900);
     line-height: 150%;
 }
@@ -119,15 +141,6 @@
     &:hover {
         color: var(--grey-900);
     }
-}
-
-.trinket__figure {
-    width: 100%;
-    order: -1;
-}
-
-.trinket__image {
-    width: 100%;
 }
 
 .trinket__back {

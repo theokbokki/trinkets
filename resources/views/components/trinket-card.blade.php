@@ -1,8 +1,15 @@
 <figure class="trinket-card">
+
     <a href="{{ route('trinket', ['trinket' => $trinket]) }}" class="trinket-card__link" data-transition="true">
         <span class="sro">{{ $trinket->title }}</span>
     </a>
-    <img src="{{ Storage::url($trinket->image) }}" alt="{{ $trinket->image_alt }}" class="trinket-card__image">
+    @if(is_array($contentBlocks))
+        @foreach($contentBlocks ?? [] as $index => $block)
+            @if($index === 0)
+                <img src="{!! $block->getImageUrl() !!}" alt="{{ $block->imageAlt }}" class="trinket-card__image">
+            @endif
+        @endforeach
+    @endif
 </figure>
 
 @css()
